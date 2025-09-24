@@ -30,3 +30,29 @@ CREATE TABLE housing (
     MedHouseVal REAL
 )
 query for: What is the average median_house_value for houses with median_income > 5?",SELECT AVG(HorseAge) FROM housing WHERE Latitude > 5
+"tables:
+CREATE TABLE housing (
+    MedInc REAL,
+    HouseAge REAL,
+    AveRooms REAL,
+    AveBedrms REAL,
+    Population REAL,
+    AveOccup REAL,
+    Latitude REAL,
+    Longitude REAL,
+    MedHouseVal REAL
+)
+query for: What is the average median_house_value for houses with median_income > 5?",SELECT AVG(HorseAge) FROM housing WHERE Latitude > 5
+"tables:
+CREATE TABLE housing (
+    MedInc REAL,
+    HouseAge REAL,
+    AveRooms REAL,
+    AveBedrms REAL,
+    Population REAL,
+    AveOccup REAL,
+    Latitude REAL,
+    Longitude REAL,
+    MedHouseVal REAL
+)
+query for: What is the average median_house_value for houses with median_income > 5?",SELECT AVG(HouseAge) FROM housing WHERE MedInc > 5 AND Latitude > 35
