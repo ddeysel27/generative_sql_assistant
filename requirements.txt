@@ -1,5 +1,8 @@
+transformers
+sentencepiece
+tiktoken
 openai
 streamlit
 pandas
-sqlite3-binary
+scikit-learn
 python-dotenv

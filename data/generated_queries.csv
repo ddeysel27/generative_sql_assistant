@@ -1,0 +1,32 @@
+input_prompt,generated_sql
+"tables:
+CREATE TABLE student_course_attendance (student_id VARCHAR); CREATE TABLE students (student_id VARCHAR)
+query for:List the id of students who never attends courses?",SELECT student_id FROM students WHERE NOT student_id IN (SELECT student_id FROM student_course_attendance)
+"
+tables:
+CREATE TABLE housing (
+    longitude REAL,
+    latitude REAL,
+    housing_median_age REAL,
+    total_rooms REAL,
+    total_bedrooms REAL,
+    population REAL,
+    households REAL,
+    median_income REAL,
+    median_house_value REAL
+)
+query for: What is the average median_house_value for houses with median_income > 5?
+",SELECT AVG(midd_house_value) FROM housing WHERE median_income > 5
+"tables:
+CREATE TABLE housing (
+    MedInc REAL,
+    HouseAge REAL,
+    AveRooms REAL,
+    AveBedrms REAL,
+    Population REAL,
+    AveOccup REAL,
+    Latitude REAL,
+    Longitude REAL,
+    MedHouseVal REAL
+)
+query for: What is the average median_house_value for houses with median_income > 5?",SELECT AVG(HorseAge) FROM housing WHERE Latitude > 5
