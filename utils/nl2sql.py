@@ -169,6 +169,29 @@ def validate_and_fix_sql(sql: str, db_path: str, table: str, cols: list):
     sql0 = apply_strict_aliases(sql)
     sql1, pre_note = enforce_columns(sql0, cols, table)
 
+        # --- auto-repairs for common LLM glitches ---
+
+    # 1) "FROM <col> AND ..."  -> "FROM <table> WHERE <col> AND ..."
+    m = re.search(r'FROM\s+"?([A-Za-z_][\w]*)"?\s+AND\b', sql1, flags=re.I)
+    if m:
+        bad_token = m.group(1)
+        sql1 = re.sub(
+            r'FROM\s+"?([A-Za-z_][\w]*)"?',
+            f'FROM {table} WHERE {bad_token}',
+            sql1,
+            count=1,
+            flags=re.I,
+        )
+
+    # 2) 'FROM "<col>" FROM <table> ...'  -> 'FROM <table> ...'
+    #    (just drop the stray column after FROM)
+    sql1 = re.sub(
+        r'FROM\s+"?[A-Za-z_][\w]*"?\s+FROM\s+([A-Za-z_][\w]*)',
+        r'FROM \1',
+        sql1,
+        flags=re.I,
+    )
+
     # --- tiny auto-repair for "FROM <column> AND ..." mistakes ---
     # e.g., "SELECT ... FROM \"Latitude\" AND Longitude > -120;"
     m = re.search(r'FROM\s+"?([A-Za-z_][\w]*)"?\s+AND\b', sql1, flags=re.I)
