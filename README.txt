@@ -1,86 +1,87 @@
-Generative AI Text-to-SQL Assistant
+# 🧠 Generative AI Text-to-SQL Assistant
 
-A lightweight but highly practical Generative AI tool that converts natural-language questions into SQL queries, executes them on a database, and returns clean, readable results. Designed for demos, data-analysis workflows, and deploying an interactive Streamlit UI.
+A lightweight but highly practical Generative AI tool that converts **natural-language questions into SQL queries**, executes them on a database, and returns clean, readable results.  
+Designed for demos, data-analysis workflows, and deploying an interactive **Streamlit UI**.
 
-Key Features
+---
 
-Text → SQL Generation
-Ask: “List the total revenue per customer for 2023” — get a valid SQL query instantly.
+## 🚀 Key Features
 
-LLM-Powered Query Builder
-Supports OpenAI GPT models or local/HuggingFace models.
+### 🔍 Text → SQL Generation  
+Ask natural questions like:  
+**“List the total revenue per customer for 2023.”**  
+Get a valid SQL query instantly.
 
-Database Ready
-Default: SQLite for portability
-Optional: PostgreSQL or MySQL with minor config changes.
+### 🤖 LLM-Powered Query Builder  
+Supports:
+- OpenAI GPT models  
+- Local / HuggingFace LLMs  
 
-Smart Error Handling
-Detects malformed SQL, retries with improved prompts, and explains errors.
+### 🗃️ Database Ready  
+- **SQLite** by default (portable & shareable)  
+- Optional: PostgreSQL or MySQL with minor config changes
 
-Optional Streamlit Web UI
-Run the whole system in a simple browser app.
+### ⚠️ Smart Error Handling  
+- Detects malformed SQL  
+- Retries with refined prompts  
+- Explains errors clearly  
 
-Clean Results Output
-Results returned as Pandas DataFrames or Streamlit tables.
+### 💻 Optional Streamlit Web UI  
+Run the generator in a simple browser app.
 
-Tech Stack
+### 📊 Clean Results Output  
+Delivered as:
+- Pandas DataFrames (CLI)
+- Streamlit Tables (UI)
 
-Python 3.10+
+---
 
-OpenAI API (or HuggingFace Transformers for local models)
+## 🏗️ Tech Stack
 
-SQLite (default)
+- Python **3.10+**
+- **OpenAI API** *(or HuggingFace Transformers)*
+- **SQLite** (default)
+- **Pandas**
+- **SQLAlchemy**
+- **Streamlit** *(optional front-end)*
 
-Pandas
+---
 
-SQLAlchemy
+## ⚙️ How It Works
 
-Streamlit (optional UI layer)
+### 1️⃣ User Inputs a Natural Language Question  
+Example:  
+> “Show the top 10 orders by total revenue.”
 
-⚙️ How It Works
-1. User Inputs a Natural Language Question
+### 2️⃣ LLM Generates SQL  
+Model receives:
+- Database schema  
+- Sample queries  
+- SQL formatting rules  
+- Dialect instructions (SQLite default)
 
-Example:
+### 3️⃣ SQL is Executed Safely  
+Handled by `sql_executor.py`:
+- Input sanitization  
+- SQLAlchemy execution  
+- Error catching  
+- Fallback explanations  
 
-“Show the top 10 orders by total revenue.”
+### 4️⃣ Results Are Returned  
+Displayed as:
+- **Pandas DataFrame** (CLI)
+- **Streamlit table** (UI)
 
-2. LLM Generates SQL
+---
 
-The model is prompted with:
+## ▶️ Running the Project
 
-database schema
-
-sample queries
-
-formatting rules
-
-SQL dialect (SQLite by default)
-
-3. SQL is Executed Safely
-
-sql_executor.py handles:
-
-input sanitation
-
-SQLAlchemy execution
-
-error catching
-
-fallback explanations
-
-4. Results are Returned
-
-Output is displayed as:
-
-Pandas DataFrame (CLI)
-
-Streamlit Table (UI)
-
-▶️ Running the Project
-1. Install dependencies
+### **1. Install dependencies**
+```bash
 pip install -r requirements.txt
 
-2. Add your OpenAI (or HF) API key
+
+2. Add your API key
 
 Create a .env file:
 
