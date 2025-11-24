@@ -1,42 +1,42 @@
-# 🧠 Generative AI Text-to-SQL Assistant
+#  Generative AI Text-to-SQL Assistant
 
 A lightweight but highly practical Generative AI tool that converts **natural-language questions into SQL queries**, executes them on a database, and returns clean, readable results.  
 Designed for demos, data-analysis workflows, and deploying an interactive **Streamlit UI**.
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
-### 🔍 Text → SQL Generation  
+###  Text → SQL Generation  
 Ask natural questions like:  
 **“List the total revenue per customer for 2023.”**  
 Get a valid SQL query instantly.
 
-### 🤖 LLM-Powered Query Builder  
+###  LLM-Powered Query Builder  
 Supports:
 - OpenAI GPT models  
 - Local / HuggingFace LLMs  
 
-### 🗃️ Database Ready  
+###  Database Ready  
 - **SQLite** by default (portable & shareable)  
 - Optional: PostgreSQL or MySQL with minor config changes
 
-### ⚠️ Smart Error Handling  
+###  Smart Error Handling  
 - Detects malformed SQL  
 - Retries with refined prompts  
 - Explains errors clearly  
 
-### 💻 Optional Streamlit Web UI  
+###  Optional Streamlit Web UI  
 Run the generator in a simple browser app.
 
-### 📊 Clean Results Output  
+###  Clean Results Output  
 Delivered as:
 - Pandas DataFrames (CLI)
 - Streamlit Tables (UI)
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 - Python **3.10+**
 - **OpenAI API** *(or HuggingFace Transformers)*
@@ -49,32 +49,32 @@ Delivered as:
 
 ## ⚙️ How It Works
 
-### 1️⃣ User Inputs a Natural Language Question  
+### 1. User Inputs a Natural Language Question  
 Example:  
 > “Show the top 10 orders by total revenue.”
 
-### 2️⃣ LLM Generates SQL  
+### 2. LLM Generates SQL  
 Model receives:
 - Database schema  
 - Sample queries  
 - SQL formatting rules  
 - Dialect instructions (SQLite default)
 
-### 3️⃣ SQL is Executed Safely  
+### 3️. SQL is Executed Safely  
 Handled by `sql_executor.py`:
 - Input sanitization  
 - SQLAlchemy execution  
 - Error catching  
 - Fallback explanations  
 
-### 4️⃣ Results Are Returned  
+### 4️. Results Are Returned  
 Displayed as:
 - **Pandas DataFrame** (CLI)
 - **Streamlit table** (UI)
 
 ---
 
-## ▶️ Running the Project
+##  Running the Project
 
 ### **1. Install dependencies**
 ```bash
